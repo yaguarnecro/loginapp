@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UsuarioModel } from '../../models/usuario.model';
 
 @Component({
@@ -9,8 +10,8 @@ import { UsuarioModel } from '../../models/usuario.model';
 export class RegistroComponent implements OnInit {
 
  usuario: UsuarioModel;
- //aqui esta como nulo
- //se inicializa en ngOnInit
+ // aqui esta como nulo
+ // se inicializa en ngOnInit
 
 
 
