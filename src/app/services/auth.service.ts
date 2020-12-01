@@ -7,7 +7,8 @@ import { UsuarioModel } from '../models/usuario.model';
 })
 export class AuthService {
 
-  private url ='https://identitytoolkit.googleapis.com/v1/accounts:';
+  private url = 'https://identitytoolkit.googleapis.com/v1/accounts:';
+
   private apiKey = 'AIzaSyB0KHP8_Z21SnnDPpwGYnty9UnVEflLWI8';
 
   // crear new user
@@ -17,18 +18,31 @@ export class AuthService {
   // https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[API_KEY]
 
 
-  constructor( private http: HttpClient ) { 
+  constructor( private http: HttpClient ) {}
 
-    logout () {
-
+    logout() {
     }
 
-    login ( usuario: UsuarioModel) {
-
+    login( usuario: UsuarioModel) {
     }
 
     nuevoUsuario( usuario: UsuarioModel){
-      
+      const authData = {
+        // usando Operador express
+        ...usuario,
+        // email: usuario.email,
+        // password: usuario.password,
+        returnSecureToken: true
+      };
+
+      // llamar servicio httpPost
+
+      return this.http.post(
+      `${ this.url }signUp?key=${ this.apiKey }`,
+      authData
+      );
+
+
     }
-  }
 }
+
