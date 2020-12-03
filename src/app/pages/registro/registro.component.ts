@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
 
   }
 
-  onSubmit( form: NgForm ){
+  onSubmit( form: NgForm ) {
 
     if ( form.invalid ) { return; }
     // console.log('formulario enviado');
@@ -32,7 +32,7 @@ export class RegistroComponent implements OnInit {
     this.auth.nuevoUsuario( this.usuario).
     subscribe( resp => {
       console.log(resp);
-    }, (err) =>{
+    }, (err) => {
       console.log(err.error.error.message);
     });
   }

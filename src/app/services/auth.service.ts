@@ -24,9 +24,16 @@ export class AuthService {
     }
 
     login( usuario: UsuarioModel) {
+      const authData = {
+        ...usuario,
+        returnSecureToken: true
+      };
+      return this.http.post(
+        `${ this.url }signInWithPassword?key=${ this.apiKey }`, authData
+        );
     }
 
-    nuevoUsuario( usuario: UsuarioModel){
+    nuevoUsuario( usuario: UsuarioModel) {
       const authData = {
         // usando Operador express
         ...usuario,
