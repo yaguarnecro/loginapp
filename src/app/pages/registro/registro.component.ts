@@ -16,6 +16,7 @@ import Swal from 'sweetalert2';
 export class RegistroComponent implements OnInit {
 
  usuario: UsuarioModel;
+ recordarme: false;
  // aqui esta como nulo
  // se inicializa en ngOnInit
 
@@ -49,6 +50,10 @@ export class RegistroComponent implements OnInit {
     subscribe( resp => {
       console.log(resp);
       Swal.close();
+      if (this.recordarme) {
+        localStorage.setItem('email', this.usuario.email);
+      }
+
       this.router.navigateByUrl('/home');
 
     }, (err) => {
